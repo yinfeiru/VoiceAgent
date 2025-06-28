@@ -1,22 +1,21 @@
-# FastRTC 原有依赖
-gradio==4.44.0
-torch
-torchaudio
-numpy==1.23.5
-funasr
-modelscope
-httpx
-uvloop; sys_platform != "win32"
-
-# WebRTC 新增依赖
-fastapi
-uvicorn[standard]
-aiortc
-aiofiles
-pydantic
-requests
-python-dotenv
-
-# AI模型API依赖
-openai  # 用于Qwen-Plus的OpenAI兼容API
-openai-whisper>=20231117  # Whisper STT support 
+fastrtc[vad,tts]==0.0.28
+gradio==5.35.0
+torch==2.7.1
+torchaudio==2.7.1
+numpy==2.0.2
+funasr==1.2.6
+modelscope==1.27.1
+httpx==0.28.1
+requests==2.32.4
+uvloop==0.21.0; sys_platform != "win32"
+fastapi==0.115.14
+uvicorn[standard]==0.34.3
+aiortc==1.13.0
+aiofiles==23.2.1
+pydantic==2.11.7
+python-dotenv==1.1.1
+openai==1.93.0
+openai-whisper==20250625
+scipy==1.15.3
+librosa==0.11.0
+soundfile==0.13.1 
