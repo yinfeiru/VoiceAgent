@@ -2,10 +2,9 @@
 
 A real-time AI voice assistant built with FastRTC, SenseVoice speech recognition, and multiple AI models (DeepSeek & Qwen-Plus). Features voice-to-voice conversation with streaming audio processing.
 
-![Demo](https://img.shields.io/badge/demo-live-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Python](https://img.shields.io/badge/python-3.8+-blue)
-![Node](https://img.shields.io/badge/node-16+-green)
+![Python](https://img.shields.io/badge/python-3.11+-blue)
+![Node](https://img.shields.io/badge/node-23+-green)
 
 ## 🎯 Project Background
 
