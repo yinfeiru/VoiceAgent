@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+        
+    - name: Install dependencies
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Lint with flake8
+      run: |
+        cd backend
+        pip install flake8
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        
+    - name: Type check with mypy
+      run: |
+        cd backend
+        pip install mypy
+        mypy . --ignore-missing-imports || true
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16'
+        cache: 'npm'
+        cache-dependency-path: frontend-react/package-lock.json
+        
+    - name: Install dependencies
+      run: |
+        cd frontend-react
+        npm ci
+        
+    - name: Lint
+      run: |
+        cd frontend-react
+        npm run lint || true
+        
+    - name: Type check
+      run: |
+        cd frontend-react
+        npx tsc --noEmit
+        
+    - name: Test
+      run: |
+        cd frontend-react
+        npm test -- --coverage --watchAll=false
+        
+    - name: Build
+      run: |
+        cd frontend-react
+        npm run build 

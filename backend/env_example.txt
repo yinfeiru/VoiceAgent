@@ -1,0 +1,60 @@
+# ===========================================
+# VoiceAgent Configuration
+# ===========================================
+
+# AI Model Configuration
+AI_MODEL_PROVIDER=qwen-plus                   # Options: deepseek, qwen-plus
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+QWEN_PLUS_API_KEY=your_qwen_plus_api_key_here
+
+# Speech-to-Text (STT) Configuration
+STT_MODEL_PROVIDER=sensevoice                 # Options: sensevoice, whisper
+SENSEVOICE_MODEL=iic/SenseVoiceSmall          # SenseVoice model path
+WHISPER_MODEL=small                           # Whisper model size: tiny, base, small, medium, large
+STT_LANGUAGE=auto                             # Options: auto, zh, en, ja, ko, etc.
+
+# Text-to-Speech (TTS) Configuration  
+TTS_PROVIDER=macos                            # Options: macos, azure, openai (future)
+TTS_VOICE=Meijia                              # macOS voice name
+TTS_RATE=200                                  # Speech rate (words per minute)
+TTS_VOLUME=1.0                                # Volume (0.0-1.0)
+
+# Audio Processing Configuration
+AUDIO_SAMPLE_RATE=24000                       # Sample rate in Hz
+AUDIO_CHANNELS=1                              # Number of audio channels
+AUDIO_CHUNK_DURATION=1.0                      # Audio chunk duration in seconds
+
+# Voice Activity Detection (VAD) Configuration
+VAD_THRESHOLD=0.3                             # Voice activity threshold (0.0-1.0)
+VAD_MIN_SPEECH_DURATION=300                   # Minimum speech duration in ms
+VAD_SILENCE_DURATION=4000                     # Silence duration for pause detection in ms
+VAD_PRE_PADDING=200                           # Pre-padding in ms
+VAD_POST_PADDING=200                          # Post-padding in ms
+
+# WebRTC Configuration
+WEBRTC_STUN_SERVER=stun:stun.l.google.com:19302
+WEBRTC_CONCURRENCY_LIMIT=10                   # Max concurrent connections
+WEBRTC_TIME_LIMIT=3600                        # Connection time limit in seconds
+
+# Server Configuration
+SERVER_HOST=0.0.0.0                           # Server host
+SERVER_PORT=8000                              # Server port
+CORS_ORIGINS=["http://localhost:3000", "http://127.0.0.1:3000"]  # Allowed CORS origins
+
+# Logging Configuration
+LOG_LEVEL=ERROR                               # DEBUG, INFO, WARNING, ERROR, CRITICAL
+LOG_FORMAT=SIMPLE                             # SIMPLE, DETAILED, MINIMAL
+LOG_TO_FILE=false                             # Enable file logging
+LOG_FILE_PATH=logs/voiceagent.log          # Log file path
+LOG_MAX_FILE_SIZE=10                          # Max log file size in MB
+LOG_BACKUP_COUNT=5                            # Number of backup log files
+
+# Debug Configuration
+DEBUG_AUDIO=false                             # Save audio files for debugging
+DEBUG_AUDIO_PATH=debug_audio                  # Debug audio directory
+
+# Performance Configuration
+MAX_AUDIO_DURATION=30                         # Maximum audio duration in seconds
+MIN_AUDIO_DURATION=0.5                        # Minimum audio duration in seconds
+AI_RESPONSE_TIMEOUT=30                        # AI response timeout in seconds
+TTS_TIMEOUT=10                                # TTS generation timeout in seconds 
