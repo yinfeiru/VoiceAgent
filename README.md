@@ -46,7 +46,7 @@ After researching various solutions, I discovered the [FastRTC project](https://
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/voiceagent.git
+   git clone git@github.com:yinfeiru/voiceagent.git
    cd voiceagent
    ```
 
@@ -165,10 +165,10 @@ npm start
 
 ### Audio Debug
 
-Enable audio debugging to save processed audio files:
+Enable audio debugging to save processed audio files by setting in your `.env` file:
 
-```python
-DEBUG_AUDIO = True  # in fastrtc_server.py
+```bash
+DEBUG_AUDIO=true
 ```
 
 ## 📝 License
